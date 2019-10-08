@@ -1,0 +1,25 @@
+{
+  "name": "reactforum",
+  "version": "1.0.0",
+  "description": "React Based Forum",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atocchi/ReactForum.git"
+  },
+  "keywords": [
+    "React",
+    "Firebase",
+    "Mysql",
+    "Node.js"
+  ],
+  "author": "Andrew Tocchi, Mike Brown, Mulwand Gulham, Nazim Uddin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atocchi/ReactForum/issues"
+  },
+  "homepage": "https://github.com/atocchi/ReactForum#readme"
+}

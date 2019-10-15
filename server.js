@@ -14,6 +14,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //allows exprees to 
+
+app.get("/api/main", function (req, res) {
+    res.json(main);
+});
+
+app.post("/api/main", function (req,res) {
+    let newPost = req.body;
+    res.json(newPost);
+});
+
 app.listen(PORT, function() {
     console.log("Server listening on: http://localhost:" + PORT);
   });

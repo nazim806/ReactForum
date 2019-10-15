@@ -1,13 +1,10 @@
-let firebase = require('firebase')
+const firebase = require('firebase')
 
 
-var firebaseConfig = {
-    
+const firebaseConfig = {
+  
   };
   
-  //array to Push to API 
-  let data = [];
-
 
   //intialize firebase 
   firebase.initializeApp(firebaseConfig);
@@ -24,6 +21,9 @@ let ref = database.ref()
 
 
 //snapshots children as they are added 
+
+fireDB = {
+selectAll: function(cb){
 ref.orderByChild("dateAdded").on("child_added", function (snapshot){
     name = snapshot.val().name
     post = snapshot.val().post
@@ -32,15 +32,12 @@ ref.orderByChild("dateAdded").on("child_added", function (snapshot){
         obName: name,
         obPost: post
     }
-    
-    data.push(postObs);
-   
-   
-    console.log(postObs);
-})
 
+    cb(postObs);
+})
+},
 // function to sanitize date before pushing to firebase
-function pusher() {
+pusher: function(cb) {
 
 inputName = postName.val().trim();
 inputPost = postPost.val().trim();
@@ -52,7 +49,7 @@ ref.push({
     
 })
 }
-
-module.exports = data; 
+}
+module.exports = fireDB; 
 
 

@@ -1,11 +1,13 @@
-const data = require('./firebase');
+const fireDB = require('./firebase');
 const express = require('express');
 const app = express();
 
 //set PORT
 const PORT = process.env.PORT || 8080;
 
-console.log(data);
+fireDB.selectAll(function(data){
+    console.log(data);
+} );
 
 //allows Parsing JSON data and body.data
 app.use(express.urlencoded({ extended: true }));

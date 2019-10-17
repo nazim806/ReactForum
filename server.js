@@ -5,7 +5,7 @@ const app = express();
 //set PORT
 const PORT = process.env.PORT || 8080;
 
-
+let arr = [];
 
 
 //pusher function, allows callbacks
@@ -25,13 +25,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+fireDB.selectAll(function(data){
+    pusher(data)
+})
+
 
 //Pulls info from Firbase and pushes it to black array (will not load of first go)
 app.get("/api/main", function (req, res) {
-arr = [];
-fireDB.selectAll(function(data){
-    pusher(data)
-} );
+
  res.json(arr)
     
 });

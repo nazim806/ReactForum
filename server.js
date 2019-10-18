@@ -38,8 +38,9 @@ app.get("/api/main", function (req, res) {
 });
 
 app.post("/api/main", function (req,res) {
-    let newPost = req.body;
-    res.json(newPost);
+    var newPost = req.body;
+    fireDB.pusher(newPost);
+    res.json(arr);
 });
 
 app.listen(PORT, function() {

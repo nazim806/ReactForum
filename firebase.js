@@ -32,10 +32,13 @@ ref.orderByChild("dateAdded").on("child_added", function (snapshot){
 })
 },
 // function to sanitize date before pushing to firebase
-pusher: function(cb) {
+pusher: function(newPost) {
 
-inputName = postName.val().trim();
-inputPost = postPost.val().trim();
+// inputName = postName.val().trim();
+// inputPost = postPost.val().trim();
+
+inputName = newPost.name;
+inputPost = newPost.post;
 
 ref.push({
     

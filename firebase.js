@@ -43,7 +43,7 @@ inputPost = newPost.post;
 ref.push({
     
         name: inputName,
-        post :inputPost
+        post: inputPost
     
 })
 }

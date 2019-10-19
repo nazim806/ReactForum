@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 8080;
 
 let arr = [];
 
-
 //pusher function, allows callbacks
 function pusher(x) {
     arr.push(x)
@@ -36,7 +35,7 @@ fireDB.selectAll(function (data) {
 
 app.get("/api/main", cors(), function (req, res) {
     res.json({
-        "posts": arr
+        "posts": arr.reverse()
     });
 });
 

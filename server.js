@@ -1,5 +1,6 @@
 const fireDB = require('./firebase');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 //set PORT
@@ -31,13 +32,15 @@ fireDB.selectAll(function(data){
 
 
 //Pulls info from Firbase and pushes it to black array (will not load of first go)
-app.get("/api/main", function (req, res) {
+app.get("/api/main", cors(), function (req, res) {
 
- res.json(arr)
+ res.json({
+     posts: arr
+ })
     
 });
 
-app.post("/api/main", function (req,res) {
+app.post("/api/main", cors(), function (req,res) {
     var newPost = req.body;
     fireDB.pusher(newPost);
     res.json(arr);

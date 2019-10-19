@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+const fireDB = require('firebase');
 
 class App extends Component {
   constructor(props){
@@ -7,26 +8,31 @@ class App extends Component {
     this.state ={
       posts: []
     }
-  }
+  };
 
-  componentDidMount(){
+
+  componentWillMount(){
     fetch("http://localhost:8080/api/main")
     .then((res) => {
       return res.json()
     }).then((data) => {
-      console.log(data);
+      console.log(data.posts);
       this.setState({ posts: data.posts })
     }) 
-  }
+  };
+
+  
 
 
   render(){
-    return (<div>
+    return (
+    <div>
       <ul>
         {this.state.posts.map((data) => {
-          let { name } = data.name;
-          // let { post } = data.post;
-          return <div><li key={name}>{name}</li></div>;
+          console.log(data);
+          let { obName } = data;
+          let { obPost } = data;
+          return <div><li key={obName}>{obName}</li><li key={obPost}>{obPost}</li></div>;
         })}
       </ul>
     </div>)

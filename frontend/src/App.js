@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+<<<<<<< HEAD
 import styled from 'styled-components';
 // import corgisImage from './img/soccer-img-1.jpg';
 // import forumLogo from './img/forum-logo.png';
+=======
+>>>>>>> cec00b989ded6c75590267c856cbdcd0084586f0
 const fireDB = require('firebase');
 
 
@@ -66,8 +69,13 @@ class App extends Component {
       posts: []
     }
   };
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> cec00b989ded6c75590267c856cbdcd0084586f0
   componentWillMount(){
     fetch("http://localhost:8080/api/main")
     .then((res) => {
@@ -79,6 +87,7 @@ class App extends Component {
   };
 
   
+<<<<<<< HEAD
 
 
   // render(){
@@ -152,13 +161,25 @@ class App extends Component {
       <Card height="100%">     
       <div>
       
+=======
+
+
+  render(){
+    return (
+    <div>
+      <ul>
+>>>>>>> cec00b989ded6c75590267c856cbdcd0084586f0
         {this.state.posts.map((data) => {
           console.log(data);
           let { obName } = data;
           let { obPost } = data;
+<<<<<<< HEAD
           return <Container width="500px"><Card width="500px" height="100px" gridTemplateColumns="1fr" gridTemplateRows="1fr 1fr" padding-left="10px 10px 10px 0px">
             <div id="postData"><b><li key={obName}>{obName}</li></b><i><p font-size="50px" key={obPost}>{obPost}</p></i></div>
              </Card></Container>;
+=======
+          return <div><li key={obName}>{obName}</li><li key={obPost}>{obPost}</li></div>;
+>>>>>>> cec00b989ded6c75590267c856cbdcd0084586f0
         })}
       
     </div>
